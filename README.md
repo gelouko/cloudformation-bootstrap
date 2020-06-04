@@ -1,7 +1,7 @@
 # Simple CloudFormation Setup
 
 This is a simple project setup for projects containing just yaml and json files for CloudFormation.
-This will make sure the commited code is linted and valid.
+This will make sure your CFN templates are linted and valid.
 
 It will use the following linters (feel free to add others to your setup):
 - [pre-commit](https://github.com/pre-commit/pre-commit-hooks)
