@@ -1,7 +1,13 @@
-# Simple Yaml Setup
+# Simple CloudFormation Setup
 
-This is a simple project setup for projects containing just yaml files.
+This is a simple project setup for projects containing just yaml and json files for CloudFormation.
 This will make sure the commited code is linted and valid.
+
+It will use the following linters (feel free to add others to your setup):
+- [pre-commit](https://github.com/pre-commit/pre-commit-hooks)
+- [yamllint](https://github.com/adrienverge/yamllint)
+- [cfn-lint](https://github.com/aws-cloudformation/cfn-python-lint)
+- [Commitizen](https://github.com/commitizen-tools/commitizen)
 
 # Setup (The main resource of this repo)
 
@@ -17,9 +23,9 @@ This will make sure the commited code is linted and valid.
     pipenv shell
   ```
 
-2. Install the necessary dependencies (pre-commit, [cfn-lint](https://github.com/aws-cloudformation/cfn-python-lint)):
+2. Install the necessary dependencies:
   ```bash
-    pipenv install --dev cfn-lint pre-commit Commitizen
+    pipenv install --dev cfn-lint pre-commit yamllint Commitizen
   ```
 
 3. Init Commitizen:
@@ -27,34 +33,39 @@ This will make sure the commited code is linted and valid.
     cz init
   ```
 
-4. Generate some basic configuration for pre-commit:
+4. Create the pre-commit configuration file:
   ```bash
-    touch .pre-commit-config.yaml && \
-    pre-commit sample-config >> .pre-commit-config.yaml && \
+    touch .pre-commit-config.yaml
   ```
 
 5. Add the cloudformation and Commitizen-specific configuration. The file should look like this:
   ```
     # See https://pre-commit.com for more information
     # See https://pre-commit.com/hooks.html for more hooks
+    ---
     repos:
-    -   repo: https://github.com/pre-commit/pre-commit-hooks
+      - repo: https://github.com/pre-commit/pre-commit-hooks
         rev: v2.4.0
         hooks:
-        -   id: trailing-whitespace
-        -   id: end-of-file-fixer
-        -   id: check-yaml
+          - id: trailing-whitespace
+          - id: end-of-file-fixer
+          - id: check-yaml
             stages: [commit]
-    -   repo: https://github.com/aws-cloudformation/cfn-python-lint
+      - repo: https://github.com/adrienverge/yamllint
+        rev: v1.23.0
+        hooks:
+          - id: yamllint
+            stages: [commit]
+      - repo: https://github.com/aws-cloudformation/cfn-python-lint
         rev: v0.33.0
         hooks:
-        -   id: cfn-python-lint
+          - id: cfn-python-lint
             files: ^([a-zA-Z0-9]|-)+\.(json|yml|yaml)$
             stages: [commit]
-    -   repo: https://github.com/commitizen-tools/commitizen
+      - repo: https://github.com/commitizen-tools/commitizen
         rev: v1.22.2
         hooks:
-        -   id: commitizen
+          - id: commitizen
             stages: [commit-msg]
   ```
 
