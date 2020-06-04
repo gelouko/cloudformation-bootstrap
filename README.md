@@ -44,12 +44,13 @@ This will make sure the commited code is linted and valid.
         -   id: trailing-whitespace
         -   id: end-of-file-fixer
         -   id: check-yaml
-        -   id: check-added-large-files
+            stages: [commit]
     -   repo: https://github.com/aws-cloudformation/cfn-python-lint
         rev: v0.33.0
         hooks:
         -   id: cfn-python-lint
             files: ^([a-zA-Z0-9]|-)+\.(json|yml|yaml)$
+            stages: [commit]
     -   repo: https://github.com/commitizen-tools/commitizen
         rev: v1.22.2
         hooks:
