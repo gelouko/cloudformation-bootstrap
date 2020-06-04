@@ -1,0 +1,12 @@
+{
+  "Resources": {
+    "S3Bucket": {
+      "DeletionPolicy": "Retain",
+      "Properties": {
+        "BucketName": "my-bucket"
+      },
+      "Type": "AWS::S3::Bucket",
+      "UpdateReplacePolicy": "Retain"
+    }
+  }
+}
