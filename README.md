@@ -13,6 +13,8 @@ It will use the following linters (feel free to add others to your setup):
 
 1. Run `generate_repo.py` to generate the repo with this configuration.
 
+2. Your developers can use `setup.py` to setup their projects locally!
+
 # Setup (The main resource of this repo)
 
 0. Requirements:

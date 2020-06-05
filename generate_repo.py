@@ -50,6 +50,19 @@ Resources:
       BucketName: my-bucket
 """
 
+setup_py = """from subprocess import run
+
+print('### Setting up project ###')
+
+print('## Installing pipenv...')
+run('pip install pipenv', shell=True)
+
+print('## Installing project dependencies...')
+run('pipenv shell && pipenv install', shell=True)
+
+print('### Finished setting up project ###')
+"""
+
 print('### Quick CloudFormation Setup ###')
 
 print('## Installing pipenv...')
@@ -75,6 +88,10 @@ with open('.pre-commit-config.yaml', 'w+') as f:
 print('## Creating sample S3 template...')
 with open('create-s3-bucket.yaml', 'w+') as f:
   f.write(sample_s3_template)
+
+print('## Creating setup.py file...')
+with open('setup.py', 'w+') as f:
+  f.write(setup_py)
 
 print('## Installing the hooks...')
 run('pre-commit install && pre-commit install --hook-type commit-msg', shell=True)
