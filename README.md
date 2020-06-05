@@ -9,6 +9,10 @@ It will use the following linters (feel free to add others to your setup):
 - [cfn-lint](https://github.com/aws-cloudformation/cfn-python-lint)
 - [Commitizen](https://github.com/commitizen-tools/commitizen)
 
+# TL,DR
+
+1. Run `generate_repo.py` to generate the repo with this configuration.
+
 # Setup (The main resource of this repo)
 
 0. Requirements:
@@ -28,9 +32,9 @@ It will use the following linters (feel free to add others to your setup):
     pipenv install --dev cfn-lint pre-commit yamllint Commitizen
   ```
 
-3. Init Commitizen:
+3. Init git and Commitizen:
   ```bash
-    cz init
+    git init && cz init
   ```
 
 4. Create the pre-commit configuration file:
