@@ -16,39 +16,39 @@ It will use the following linters (feel free to add others to your setup):
 2. Your developers can use `setup.py` to setup their projects locally!
 
 3. Integrate with
-  1. [Github actions](https://commitizen-tools.github.io/commitizen/tutorials/github_actions/)
-  2. [Gitlab CI](https://commitizen-tools.github.io/commitizen/tutorials/gitlab_ci/)
+    1. [Github actions](https://commitizen-tools.github.io/commitizen/tutorials/github_actions/)
+    2. [Gitlab CI](https://commitizen-tools.github.io/commitizen/tutorials/gitlab_ci/)
 
 # Setup (The main resource of this repo)
 
-0. Requirements:
+1. Requirements:
   0.1 Pipenv
   ```bash
     pip install pipenv
   ```
 
-1. Init your project:
+2. Init your project:
   ```bash
     pipenv install
     pipenv shell
   ```
 
-2. Install the necessary dependencies:
+3. Install the necessary dependencies:
   ```bash
     pipenv install --dev cfn-lint pre-commit yamllint Commitizen
   ```
 
-3. Init git and Commitizen:
+4. Init git and Commitizen:
   ```bash
     git init && cz init
   ```
 
-4. Create the pre-commit configuration file:
+5. Create the pre-commit configuration file:
   ```bash
     touch .pre-commit-config.yaml
   ```
 
-5. Add the cloudformation and Commitizen-specific configuration. The file should look like this:
+6. Add the cloudformation and Commitizen-specific configuration. The file should look like this:
   ```
     # See https://pre-commit.com for more information
     # See https://pre-commit.com/hooks.html for more hooks
@@ -79,18 +79,18 @@ It will use the following linters (feel free to add others to your setup):
             stages: [commit-msg]
   ```
 
-6. Install the git hook scripts
+7. Install the git hook scripts
   ```bash
     pre-commit install && pre-commit install --hook-type commit-msg
   ```
 
-7. Test your current environment!
+8. Test your current environment!
   ```bash
     git add --a
     cz commit
   ```
 
-8. Enable pre-commit for the repository itself
+9. Enable pre-commit for the repository itself
   ```bash
     git config --local init.templateDir .git-template
     pre-commit init-templatedir .git-template -t pre-commit -t commit-msg
