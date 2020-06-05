@@ -1,4 +1,4 @@
-# Simple CloudFormation Setup
+# Simple CloudFormation Bootstrap
 
 This is a simple project setup for projects containing just yaml and json files for CloudFormation.
 This will make sure your CFN templates are linted and valid.
