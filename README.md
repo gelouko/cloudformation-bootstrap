@@ -15,6 +15,10 @@ It will use the following linters (feel free to add others to your setup):
 
 2. Your developers can use `setup.py` to setup their projects locally!
 
+3. Integrate with
+  1. [Github actions](https://commitizen-tools.github.io/commitizen/tutorials/github_actions/)
+  2. [Gitlab CI](https://commitizen-tools.github.io/commitizen/tutorials/gitlab_ci/)
+
 # Setup (The main resource of this repo)
 
 0. Requirements:
