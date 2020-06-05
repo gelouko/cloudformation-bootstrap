@@ -79,3 +79,9 @@ It will use the following linters (feel free to add others to your setup):
     git add --a
     cz commit
   ```
+
+8. Enable pre-commit for the repository itself
+  ```bash
+    git config --local init.templateDir .git-template
+    pre-commit init-templatedir .git-template -t pre-commit -t commit-msg
+  ```
