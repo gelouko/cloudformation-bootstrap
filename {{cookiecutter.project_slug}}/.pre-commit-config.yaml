@@ -17,12 +17,15 @@ repos:
     hooks:
       - id: yamllint
         stages: [commit]
+  # {% if cookiecutter.use_cloudformation == 'y' %}
   - repo: https://github.com/aws-cloudformation/cfn-python-lint
     rev: v0.33.0
     hooks:
       - id: cfn-python-lint
         files: ^cloudformation/.*\.(json|yml|yaml)$
         stages: [commit]
+  # {% endif %}
+  # {% if cookiecutter.use_terraform == 'y' %}
   - repo: https://github.com/antonbabenko/pre-commit-terraform
     rev: v1.31.0
     hooks:
@@ -37,6 +40,7 @@ repos:
         files: ^terraform/.*(\.hcl)$
       - id: terraform_tfsec
         files: ^terraform/.*(\.tf|\.tfvars)$
+  # {% endif %}
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v1.22.2
     hooks:
