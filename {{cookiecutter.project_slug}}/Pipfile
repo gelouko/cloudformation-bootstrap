@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+cfn-lint = "*"
 pre-commit = "*"
 commitizen = "*"
 yamllint = "*"
@@ -12,3 +13,6 @@ yamllint = "*"
 
 [requires]
 python_version = "3.8"
+
+[scripts]
+setup = "python setup.py"

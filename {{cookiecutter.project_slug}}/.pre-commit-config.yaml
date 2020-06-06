@@ -17,6 +17,12 @@ repos:
     hooks:
       - id: yamllint
         stages: [commit]
+  - repo: https://github.com/aws-cloudformation/cfn-python-lint
+    rev: v0.33.0
+    hooks:
+      - id: cfn-python-lint
+        files: ^([a-zA-Z0-9]|-)+\.(json|yml|yaml)$
+        stages: [commit]
   - repo: https://github.com/commitizen-tools/commitizen
     rev: v1.22.2
     hooks:
